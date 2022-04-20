@@ -7,8 +7,16 @@ name = "pypi"
 flask = "*"
 python-dotenv = "*"
 sqlalchemy = "*"
+flask-sqlalchemy = "*"
+psycopg2-binary = "*"
+wtforms = "*"
+flask-wtf = "*"
+flask-login = "*"
 
 [dev-packages]
+pylint = "*"
+pycodestyle = "*"
+rope = "*"
 
 [requires]
 python_version = "3.9"
