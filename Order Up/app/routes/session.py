@@ -1,3 +1,10 @@
+from flask import Blueprint, render_template, redirect
+from app.forms import LoginForm
+
+
+bp = Blueprint('main', __name__, url_prefix="/")
+
+
 # The use of @bp, here, assumes you named the variable "bp"
 # that holds your Blueprint object for this routing module
 @bp.route("/", methods=["GET", "POST"])
@@ -13,3 +20,11 @@ def login():
         login_user(employee)
         return redirect(url_for("orders.index"))
     return render_template("login.html", form=form)
+
+
+
+
+@bp.route('/logout', methods=["POST"])
+def logout():
+    logout_user()
+    return redirect(url_for('.login'))
