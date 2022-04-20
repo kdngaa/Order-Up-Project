@@ -1,14 +1,15 @@
 from flask import Blueprint, render_template, redirect
 from app.forms import LoginForm
+from flask_login import current_user
 
-
-bp = Blueprint('main', __name__, url_prefix="/")
+bp = Blueprint('login', __name__, url_prefix="/login")
 
 
 # The use of @bp, here, assumes you named the variable "bp"
 # that holds your Blueprint object for this routing module
 @bp.route("/", methods=["GET", "POST"])
 def login():
+    print("\nTHIS IS A TEST\n")
     if current_user.is_authenticated:
         return redirect(url_for("orders.index"))
     form = LoginForm()
